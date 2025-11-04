@@ -20,15 +20,19 @@ function registerUser($name, $email, $password, $role = 'Employee')
 
         // Insert user
         $stmt = $pdo->prepare("
-            INSERT INTO users (name, email, password, role) 
-            VALUES (:name, :email, :password, :role)
+            INSERT INTO users (name, email, password, role, avatar) 
+            VALUES (:name, :email, :password, :role, :avatar)
         ");
+        
+        $seed = crc32($email); // Create a consistent seed for the avatar
+        $avatar = "https://picsum.photos/seed/{$seed}/100/100";
 
         $result = $stmt->execute([
             'name' => $name,
             'email' => $email,
             'password' => $hashedPassword,
-            'role' => $role
+            'role' => $role,
+            'avatar' => $avatar
         ]);
 
         if ($result) {
@@ -59,12 +63,7 @@ function loginUser($email, $password)
 
         if (password_verify($password, $user['password'])) {
             // Set session
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
-            $_SESSION['user_email'] = $user['email'];
-            $_SESSION['user_avatar'] = $user['avatar'];
-            $_SESSION['user_role'] = $user['role'];
-            $_SESSION['logged_in'] = true;
+            setUserSession($user);
 
             return [
                 'success' => true,
