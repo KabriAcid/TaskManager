@@ -1,5 +1,9 @@
 # **App Name**: TaskManager Pro
 
+## Objectives
+
+Design and Implementation of an Employee Task Scheduling and Reporting Information System using PHP (PDO) + Tailwind + Vanilla JS (AJAX) + MySQL.
+
 ## Core Features:
 
 - User Authentication: Secure login, logout, and registration with role-based access control (Admin, Manager, Employee).
