@@ -18,8 +18,8 @@ It is compiled by Tailwind into output.css.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Previous: 222.2 47.4% 11.2% */
-    --primary: 224 76% 48%; /* Indigo from index.php */
+    /* Indigo-600: #4f46e5 */
+    --primary: 243 75% 59%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
