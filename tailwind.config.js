@@ -49,7 +49,7 @@ module.exports = {
         sm: "calc(0.5rem - 4px)",
       },
       fontFamily: {
-        body: ['"Inter"', "sans-serif"],
+        body: ['"Pt-sans"', "sans-serif"],
       },
       keyframes: {
         "slide-in": {
