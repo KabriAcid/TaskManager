@@ -15,7 +15,7 @@ $isActive = function ($path) use ($currentPath) {
 <!-- Sidebar -->
 <aside id="sidebar" class="fixed left-0 top-0 z-40 h-screen w-64 transition-transform -translate-x-full md:translate-x-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
     <!-- Sidebar Header -->
-    <div class="flex h-16 items-center gap-2.5 border-b border-gray-200 dark:border-gray-700 px-6 bg-gradient-to-r from-indigo-600 to-purple-600">
+    <div class="flex h-16 items-center gap-2.5 border-b border-gray-200 dark:border-gray-700 px-6 bg-indigo-600">
         <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
         </svg>
