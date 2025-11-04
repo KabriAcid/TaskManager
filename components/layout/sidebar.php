@@ -15,7 +15,7 @@ $isActive = function ($path) use ($currentPath) {
     <!-- Sidebar Header -->
     <div class="flex h-16 items-center gap-2 border-b border-sidebar-border px-6">
         <i data-lucide="bot" class="w-8 h-8 text-primary"></i>
-        <h1 class="text-xl font-bold font-headline text-primary">TaskManager Pro</h1>
+        <h1 class="text-xl font-bold font-headline text-primary">TaskManager</h1>
     </div>
 
     <!-- Sidebar Content -->

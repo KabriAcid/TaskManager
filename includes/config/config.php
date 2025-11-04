@@ -6,7 +6,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
 $dotenv->safeLoad();
 
 // Application Configuration
-define('APP_NAME', $_ENV['APP_NAME'] ?? 'TaskManager Pro');
+define('APP_NAME', $_ENV['APP_NAME'] ?? 'TaskManager');
 define('APP_URL', $_ENV['APP_URL'] ?? 'http://localhost/TaskManager');
 define('APP_ENV', $_ENV['APP_ENV'] ?? 'development');
 define('BASE_PATH', dirname(dirname(__DIR__)));
