@@ -28,7 +28,7 @@ include __DIR__ . '/../../components/layout/header.php';
             <div class="flex-1 space-y-4">
                 <div class="flex items-center justify-between space-y-2">
                     <div>
-                        <h2 class="text-3xl font-bold tracking-tight font-headline">Reports</h2>
+                        <h2 class="text-3xl font-bold tracking-tight">Reports</h2>
                         <p class="text-muted-foreground">View summaries of task activity and performance.</p>
                     </div>
                     <div class="flex items-center space-x-2">
@@ -42,9 +42,9 @@ include __DIR__ . '/../../components/layout/header.php';
                 <!-- Tabs -->
                 <div class="space-y-4">
                     <div class="flex space-x-1 rounded-lg bg-muted p-1">
-                        <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all bg-background shadow">Daily</button>
-                        <button onclick="switchTab('weekly')" id="tab-weekly" class="tab-btn flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all hover:bg-background/50">Weekly</button>
-                        <button onclick="switchTab('monthly')" id="tab-monthly" class="tab-btn flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all hover:bg-background/50">Monthly</button>
+                        <button onclick="switchTab('daily')" id="tab-daily" class="tab-btn flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all bg-card shadow-sm text-foreground">Daily</button>
+                        <button onclick="switchTab('weekly')" id="tab-weekly" class="tab-btn flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all text-muted-foreground hover:bg-card/50 hover:text-foreground">Weekly</button>
+                        <button onclick="switchTab('monthly')" id="tab-monthly" class="tab-btn flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-all text-muted-foreground hover:bg-card/50 hover:text-foreground">Monthly</button>
                     </div>
 
                     <!-- Daily Tab -->
@@ -101,8 +101,8 @@ include __DIR__ . '/../../components/layout/header.php';
 
         // Remove active state from all tabs
         document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('bg-background', 'shadow');
-            btn.classList.add('hover:bg-background/50');
+            btn.classList.remove('bg-card', 'shadow-sm', 'text-foreground');
+            btn.classList.add('text-muted-foreground', 'hover:bg-card/50', 'hover:text-foreground');
         });
 
         // Show selected tab content
@@ -110,8 +110,8 @@ include __DIR__ . '/../../components/layout/header.php';
 
         // Add active state to selected tab
         const activeTab = document.getElementById('tab-' + tabName);
-        activeTab.classList.add('bg-background', 'shadow');
-        activeTab.classList.remove('hover:bg-background/50');
+        activeTab.classList.add('bg-card', 'shadow-sm', 'text-foreground');
+        activeTab.classList.remove('text-muted-foreground', 'hover:bg-card/50', 'hover:text-foreground');
     }
 </script>
 

@@ -35,7 +35,7 @@ include __DIR__ . '/../../components/layout/header.php';
         <main class="p-4 lg:p-6">
             <div class="space-y-6">
                 <div class="space-y-2">
-                    <h2 class="text-3xl font-bold tracking-tight font-headline">
+                    <h2 class="text-3xl font-bold tracking-tight">
                         Hello, <?php echo htmlspecialchars($currentUser['name']); ?>!
                     </h2>
                     <p class="text-muted-foreground">Here is an overview of your team's tasks and performance.</p>

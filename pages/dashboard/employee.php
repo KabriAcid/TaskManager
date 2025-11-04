@@ -35,7 +35,7 @@ include __DIR__ . '/../../components/layout/header.php';
         <main class="p-4 lg:p-6">
             <div class="space-y-6">
                 <div class="space-y-2">
-                    <h2 class="text-3xl font-bold tracking-tight font-headline">
+                    <h2 class="text-3xl font-bold tracking-tight">
                         Welcome back, <?php echo explode(' ', $currentUser['name'])[0]; ?>!
                     </h2>
                     <p class="text-muted-foreground">Here are your assigned tasks and current workload.</p>

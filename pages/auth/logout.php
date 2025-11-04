@@ -6,5 +6,5 @@ require_once __DIR__ . '/../../includes/auth/session.php';
 destroySession();
 
 // Redirect to login
-header('Location: ' . APP_URL . '/pages/auth/login.php');
+header('Location: ' . APP_URL . '/index.php');
 exit;
