@@ -44,4 +44,53 @@ next-env.d.ts
 firebase-debug.log
 firestore-debug.log
 
-vendor
+# PHP/Composer
+vendor/
+composer.phar
+composer.lock
+
+# PHP-specific
+*.log
+*.cache
+*.tmp
+
+# Tailwind CSS compiled output
+/public/css/output.css
+/public/css/output.css.map
+
+# Storage directories (logs, uploads, cache)
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/uploads/*
+!/storage/uploads/.gitkeep
+/storage/cache/*
+!/storage/cache/.gitkeep
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files (sensitive data)
+.env
+.env.local
+.env.development
+.env.production
+/.env*
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Package manager locks (optional - remove if you want to track them)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Build artifacts
+dist/
+tmp/
+temp/
