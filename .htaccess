@@ -1,6 +1,6 @@
 # Enable Rewrite Engine
 RewriteEngine On
-RewriteBase /TaskManager/php-task-manager/
+RewriteBase /TaskManager/
 
 # Redirect to public/index.php if accessing root
 RewriteCond %{REQUEST_FILENAME} !-f

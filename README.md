@@ -14,7 +14,7 @@ A professional task management application built with PHP (PDO), MySQL, Tailwind
 ## 📁 Project Structure
 
 ```
-php-task-manager/
+TaskManager/
 ├── public/              # Public-facing files
 │   ├── index.php       # Main entry point
 │   ├── css/            # Tailwind CSS files
@@ -51,48 +51,6 @@ php-task-manager/
 - XAMPP (or any PHP 7.4+ environment)
 - Node.js and npm (for Tailwind CSS compilation)
 - MySQL database
-
-### Installation
-
-1. **Install dependencies**
-
-   ```bash
-   cd php-task-manager
-   npm install
-   ```
-
-2. **Compile Tailwind CSS**
-
-   ```bash
-   # For development (watch mode)
-   npm run dev
-
-   # For production (minified)
-   npm run build
-   ```
-
-3. **Configure database**
-
-   - Edit `includes/config/config.php`
-   - Update database credentials:
-     ```php
-     define('DB_HOST', 'localhost');
-     define('DB_NAME', 'taskmanager');
-     define('DB_USER', 'root');
-     define('DB_PASS', '');
-     ```
-
-4. **Create database** (optional - currently using sample data)
-
-   ```sql
-   CREATE DATABASE taskmanager;
-   ```
-
-5. **Access the application**
-   - Open: `http://localhost/TaskManager/php-task-manager/public/`
-   - Auto-login as Admin (demo mode)
-
-## 📝 Component Mapping (Next.js → PHP)
 
 ### Pages
 

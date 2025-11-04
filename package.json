@@ -1,5 +1,5 @@
 {
-  "name": "php-task-manager",
+  "name": "task-manager",
   "version": "1.0.0",
   "description": "PHP Task Manager with Tailwind CSS",
   "scripts": {

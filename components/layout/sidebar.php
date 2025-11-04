@@ -3,7 +3,7 @@ $currentPath = $_SERVER['REQUEST_URI'];
 $isActive = function ($path) use ($currentPath) {
     if ($path === '/dashboard' || $path === '/') {
         return strpos($currentPath, 'dashboard/index.php') !== false ||
-            strpos($currentPath, 'php-task-manager/pages/dashboard/') !== false ||
+            strpos($currentPath, 'TaskManager/pages/dashboard/') !== false ||
             $currentPath === APP_URL . '/';
     }
     return strpos($currentPath, $path) !== false;
