@@ -15,6 +15,7 @@ import { aiPoweredTaskSearch } from '@/ai/flows/ai-powered-task-search';
 import { getTaskFilterSuggestions } from '@/ai/flows/task-filter-suggestions';
 import { useToast } from '@/hooks/use-toast';
 import CreateTaskDialog from './create-task-dialog';
+import { cn } from '@/lib/utils';
 
 interface TasksTableProps {
   tasks: Task[];
