@@ -35,20 +35,20 @@ include __DIR__ . '/../../components/layout/header.php';
         <main class="p-4 lg:p-6">
             <div class="space-y-6">
                 <div class="space-y-2">
-                    <h2 class="text-3xl font-bold tracking-tight">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Welcome back, <?php echo explode(' ', $currentUser['name'])[0]; ?>!
                     </h2>
-                    <p class="text-muted-foreground">Here are your assigned tasks and current workload.</p>
+                    <p class="text-gray-600 dark:text-gray-400">Here are your assigned tasks and current workload.</p>
                 </div>
 
                 <!-- Stats Grid -->
-                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                     <?php
                     require_once __DIR__ . '/../../components/dashboard/stat-card.php';
-                    renderStatCard('My Total Tasks', $totalTasks, 'clipboard-check', 'All tasks assigned to you');
-                    renderStatCard('Completed', $completedTasks, 'check-circle', "Tasks you've finished");
-                    renderStatCard('Overdue', $overdueTasks, 'alert-triangle', 'Require your urgent attention');
-                    renderStatCard('In Progress', $inProgressTasks, 'clock', 'What you are working on');
+                    renderStatCard('My Total Tasks', $totalTasks, 'list-checks', 'All tasks assigned to you', 'blue');
+                    renderStatCard('Completed', $completedTasks, 'check-circle', "Tasks you've finished", 'purple');
+                    renderStatCard('Overdue', $overdueTasks, 'alert-circle', 'Require your urgent attention', 'pink');
+                    renderStatCard('In Progress', $inProgressTasks, 'clock', 'What you are working on', 'indigo');
                     ?>
                 </div>
 

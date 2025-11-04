@@ -30,20 +30,20 @@ include __DIR__ . '/../../components/layout/header.php';
         <main class="p-4 lg:p-6">
             <div class="space-y-6">
                 <div class="space-y-2">
-                    <h2 class="text-3xl font-bold tracking-tight">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Welcome, Admin <?php echo explode(' ', $currentUser['name'])[0]; ?>!
                     </h2>
-                    <p class="text-muted-foreground">Here's the full overview of your organization's activities.</p>
+                    <p class="text-gray-600 dark:text-gray-400">Here's the full overview of your organization's activities.</p>
                 </div>
 
                 <!-- Stats Grid -->
-                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                     <?php
                     require_once __DIR__ . '/../../components/dashboard/stat-card.php';
-                    renderStatCard('Total Tasks', $totalTasks, 'clipboard-check', $completedTasks . ' completed');
-                    renderStatCard('Active Users', 5, 'users', 'Across 3 departments');
-                    renderStatCard('Urgent Tasks', $urgentTasks, 'alert-triangle', 'Require immediate attention');
-                    renderStatCard('In Progress', $inProgressTasks, 'clock', 'Currently being worked on');
+                    renderStatCard('Total Tasks', $totalTasks, 'list-checks', $completedTasks . ' completed', 'purple');
+                    renderStatCard('Active Users', 5, 'users', 'Across 3 departments', 'indigo');
+                    renderStatCard('Urgent Tasks', $urgentTasks, 'alert-circle', 'Require immediate attention', 'pink');
+                    renderStatCard('In Progress', $inProgressTasks, 'clock', 'Currently being worked on', 'blue');
                     ?>
                 </div>
 

@@ -35,20 +35,20 @@ include __DIR__ . '/../../components/layout/header.php';
         <main class="p-4 lg:p-6">
             <div class="space-y-6">
                 <div class="space-y-2">
-                    <h2 class="text-3xl font-bold tracking-tight">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Hello, <?php echo htmlspecialchars($currentUser['name']); ?>!
                     </h2>
-                    <p class="text-muted-foreground">Here is an overview of your team's tasks and performance.</p>
+                    <p class="text-gray-600 dark:text-gray-400">Here is an overview of your team's tasks and performance.</p>
                 </div>
 
                 <!-- Stats Grid -->
-                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                     <?php
                     require_once __DIR__ . '/../../components/dashboard/stat-card.php';
-                    renderStatCard('Team Tasks', $totalTasks, 'clipboard-check', $completedTasks . ' completed');
-                    renderStatCard('Team Members', 3, 'users', 'Active on projects');
-                    renderStatCard('Overdue Tasks', $overdueTasks, 'alert-triangle', 'Need follow-up');
-                    renderStatCard('In Progress', $inProgressTasks, 'clock', 'Actively being worked on');
+                    renderStatCard('Team Tasks', $totalTasks, 'list-checks', $completedTasks . ' completed', 'indigo');
+                    renderStatCard('Team Members', 3, 'users', 'Active on projects', 'purple');
+                    renderStatCard('Overdue Tasks', $overdueTasks, 'alert-circle', 'Need follow-up', 'pink');
+                    renderStatCard('In Progress', $inProgressTasks, 'clock', 'Actively being worked on', 'blue');
                     ?>
                 </div>
 
