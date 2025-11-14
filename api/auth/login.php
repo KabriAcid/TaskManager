@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../includes/config/config.php';
-require_once __DIR__ . '/../../includes/auth/session.php';
-require_once __DIR__ . '/../../includes/auth/functions.php';
+require_once __DIR__ . '/../../includes/helpers/session.php';
+require_once __DIR__ . '/../../includes/helpers/functions.php';
 
 header('Content-Type: application/json');
 
@@ -34,4 +34,3 @@ if ($result['success']) {
         'message' => $result['message']
     ]);
 }
-?>

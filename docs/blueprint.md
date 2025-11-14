@@ -2,7 +2,7 @@
 
 **Academic Project** | Computer Science Department | NEU/22/23/CSC/00086
 
-A professional task management application built with PHP (PDO), MySQL, Tailwind CSS, and Vanilla JavaScript (AJAX). This system automates the process of assigning, tracking, and reporting employee tasks within an organization, improving efficiency, accountability, and communication between supervisors and staff.
+A professional task management and reporting system application built with PHP (PDO), MySQL, Tailwind CSS, and Vanilla JavaScript (AJAX). This system automates the process of assigning, tracking, and reporting employee tasks within an organization, improving efficiency, accountability, and communication between supervisors and staff.
 
 ## 📋 Project Overview
 

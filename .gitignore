@@ -54,10 +54,6 @@ composer.lock
 *.cache
 *.tmp
 
-# Tailwind CSS compiled output
-/public/css/output.css
-/public/css/output.css.map
-
 # Storage directories (logs, uploads, cache)
 /storage/logs/*
 !/storage/logs/.gitkeep

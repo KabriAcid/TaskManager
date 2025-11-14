@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../includes/auth/session.php';
+require_once __DIR__ . '/../../includes/helpers/session.php';
 $currentUser = getCurrentUser();
 ?>
 

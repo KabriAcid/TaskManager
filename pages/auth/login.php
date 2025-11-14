@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../includes/config/config.php';
-require_once __DIR__ . '/../../includes/auth/session.php';
-require_once __DIR__ . '/../../includes/auth/functions.php';
+require_once __DIR__ . '/../../includes/helpers/session.php';
+require_once __DIR__ . '/../../includes/helpers/functions.php';
 
 // If already logged in, redirect to dashboard
 if (isLoggedIn()) {
@@ -10,40 +10,34 @@ if (isLoggedIn()) {
 }
 
 $pageTitle = 'Login';
-include __DIR__ . '/../../components/layout/header.php';
+include __DIR__ . '/../components/layout/header.php';
 ?>
 
 <div class="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
-    <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+    <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg dark:bg-gray-800">
         <div class="text-center">
             <a href="<?php echo APP_URL; ?>" class="flex items-center justify-center mb-4">
-                 <svg class="h-10 w-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="h-10 w-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
                 </svg>
                 <span class="ml-2 text-3xl font-bold text-gray-900 dark:text-white">TaskFlow</span>
             </a>
-            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Sign in to your account</h1>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                Or
-                <a href="<?php echo APP_URL; ?>/pages/auth/register.php" class="font-medium text-indigo-600 hover:underline">
-                    start your 14-day free trial
-                </a>
-            </p>
+            <h1 class="text-base text-gray-900 dark:text-white">Sign in to your account</h1>
         </div>
         <form id="login-form" class="mt-8 space-y-6" method="POST" action="<?php echo APP_URL; ?>/api/auth/login.php">
             <div id="error-message" class="hidden p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
             </div>
             <div class="rounded-md shadow-sm -space-y-px">
-                <div>
+                <div class="mb-3">
                     <label for="email-address" class="sr-only">Email address</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required 
-                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 placeholder-gray-500 text-gray-900 dark:text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
+                    <input id="email-address" name="email" type="email" autocomplete="email" required
+                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 placeholder-gray-500 text-gray-900 dark:text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Email address" value="admin@taskflow.com">
                 </div>
                 <div>
                     <label for="password" class="sr-only">Password</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" required 
-                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 placeholder-gray-500 text-gray-900 dark:text-white rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
+                    <input id="password" name="password" type="password" autocomplete="current-password" required
+                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 placeholder-gray-500 text-gray-900 dark:text-white rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Password" value="password">
                 </div>
             </div>
@@ -73,6 +67,13 @@ include __DIR__ . '/../../components/layout/header.php';
                     Sign in
                 </button>
             </div>
+            <div class="text-sm">
+                <p class="text-center">Don't have an account?
+                    <a href="register.php" class="font-medium text-indigo-600 hover:underline">
+                        Register
+                    </a>
+                </p>
+            </div>
         </form>
     </div>
 </div>
@@ -81,27 +82,33 @@ include __DIR__ . '/../../components/layout/header.php';
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const errorMessage = document.getElementById('error-message');
+        const errorMessage = document.getElementById('earror-message');
 
         fetch(form.action, {
-            method: 'POST',
-            body: JSON.stringify(Object.fromEntries(formData)),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json().then(data => ({ status: response.status, body: data })))
-        .then(({ status, body }) => {
-            if (status === 200 && body.success) {
-                window.location.href = '<?php echo APP_URL; ?>/pages/dashboard/index.php';
-            } else {
-                errorMessage.textContent = body.message || 'An unknown error occurred.';
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData)),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json().then(data => ({
+                status: response.status,
+                body: data
+            })))
+            .then(({
+                status,
+                body
+            }) => {
+                if (status === 200 && body.success) {
+                    window.location.href = '<?php echo APP_URL; ?>/pages/dashboard/index.php';
+                } else {
+                    errorMessage.textContent = body.message || 'An unknown error occurred.';
+                    errorMessage.classList.remove('hidden');
+                }
+            }).catch(error => {
+                errorMessage.textContent = 'A network error occurred. Please try again.';
                 errorMessage.classList.remove('hidden');
-            }
-        }).catch(error => {
-            errorMessage.textContent = 'A network error occurred. Please try again.';
-            errorMessage.classList.remove('hidden');
-        });
+            });
     });
 </script>
-<?php include __DIR__ . '/../../components/layout/footer.php'; ?>
+<?php include __DIR__ . '/../components/layout/footer.php'; ?>

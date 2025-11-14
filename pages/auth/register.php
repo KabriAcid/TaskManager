@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../includes/config/config.php';
-require_once __DIR__ . '/../../includes/auth/session.php';
+require_once __DIR__ . '/../../includes/helpers/session.php';
 
 // If already logged in, redirect to dashboard
 if (isLoggedIn()) {
@@ -9,11 +9,11 @@ if (isLoggedIn()) {
 }
 
 $pageTitle = 'Register';
-include __DIR__ . '/../../components/layout/header.php';
+include __DIR__ . '/../components/layout/header.php';
 ?>
 
 <div class="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
-    <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+    <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg dark:bg-gray-800">
         <div class="text-center">
             <a href="<?php echo APP_URL; ?>" class="flex items-center justify-center mb-4">
                 <svg class="h-10 w-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,16 +32,16 @@ include __DIR__ . '/../../components/layout/header.php';
         <form id="register-form" class="mt-8 space-y-6">
             <div id="error-message" class="hidden p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
             </div>
-            <div class="rounded-md shadow-sm -space-y-px">
-                <div>
+            <div class="rounded-md shadow-sm -space-y-x">
+                <div class="mb-3">
                     <label for="name" class="sr-only">Name</label>
                     <input id="name" name="name" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm" placeholder="Full Name">
                 </div>
-                <div>
+                <div class="mb-3">
                     <label for="email-address" class="sr-only">Email address</label>
                     <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm" placeholder="Email address">
                 </div>
-                <div>
+                <div class="mb-3">
                     <label for="password" class="sr-only">Password</label>
                     <input id="password" name="password" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm" placeholder="Password">
                 </div>
@@ -61,4 +61,4 @@ include __DIR__ . '/../../components/layout/header.php';
     </div>
 </div>
 
-<?php include __DIR__ . '/../../components/layout/footer.php'; ?>
+<?php include __DIR__ . '/../components/layout/footer.php'; ?>

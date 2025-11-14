@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../includes/auth/functions.php';
+require_once __DIR__ . '/../../includes/helpers/functions.php';
 
 if (!$currentUser) return;
 $allUsers = getAllUsers();
