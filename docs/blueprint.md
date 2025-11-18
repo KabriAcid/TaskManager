@@ -2,7 +2,7 @@
 
 **Academic Project** | Computer Science Department | NEU/22/23/CSC/00086
 
-A professional task management and reporting system application built with PHP (PDO), MySQL, Tailwind CSS, and Vanilla JavaScript (AJAX). This system automates the process of assigning, tracking, and reporting employee tasks within an organization, improving efficiency, accountability, and communication between supervisors and staff.
+A professional employee task scheduling and reporting system application built with PHP (PDO), MySQL, Tailwind CSS, and Vanilla JavaScript (AJAX). This system automates the process of assigning, tracking, and reporting employee tasks within an organization, improving efficiency, accountability, and communication between supervisors and staff.
 
 ## 📋 Project Overview
 
@@ -124,53 +124,7 @@ The manual task assignment and reporting process involves:
 - Attendance tracking
 - Asset management
 
-## �📁 Project Structure
-
-```
-TaskManager/
-├── public/              # Public-facing files
-│   ├── index.php       # Main entry point
-│   ├── css/            # Tailwind CSS files
-│   ├── js/             # JavaScript files
-│   └── assets/         # Images and static files
-├── pages/              # Main application pages
-│   ├── auth/           # Login, register, logout
-│   ├── dashboard/      # Dashboard pages
-│   ├── tasks/          # Task management
-│   └── reports/        # Reports
-├── components/         # Reusable PHP components
-│   ├── layout/         # Header, footer, sidebar, navigation
-│   ├── dashboard/      # Dashboard components
-│   ├── tasks/          # Task components
-│   ├── reports/        # Report components
-│   └── ui/             # UI components
-├── api/                # AJAX API endpoints
-│   ├── auth/           # Authentication
-│   ├── tasks/          # Task CRUD
-│   ├── projects/       # Projects
-│   └── reports/        # Reports
-├── includes/           # Backend logic
-│   ├── config/         # Configuration
-│   ├── auth/           # Session management
-│   └── database/       # Database connection
-├── database/           # SQL files
-└── storage/            # Logs and uploads
-```
-
 ## 🛠️ Technology Stack
-
-### Backend
-
-- **PHP 7.4+**: Server-side scripting
-- **PDO (PHP Data Objects)**: Database abstraction layer
-- **MySQL 8.0+**: Relational database management
-
-### Frontend
-
-- **HTML5**: Semantic markup
-- **Tailwind CSS 3.4+**: Utility-first CSS framework via CDN
-- **Vanilla JavaScript**: Client-side interactivity with AJAX
-- **Chart.js 4.x**: Data visualization for reports
 
 ### Development Environment
 
@@ -185,24 +139,7 @@ TaskManager/
 - **Icons**: Inline SVG icons for better performance
 - **Responsive**: Mobile-first approach with breakpoints
 
-## 🛠️ Setup Instructions
-
-### Prerequisites
-
-- **XAMPP** (or any PHP 7.4+ environment with Apache and MySQL)
-- **MySQL 8.0+** database server
-- **Modern Web Browser** (Chrome, Firefox, Edge)
-- **Git** for version control
-
-### Installation Steps
-
-1. **Clone the repository**
-
-   ```bash
-   cd c:\xampp\htdocs
-   git clone <repository-url> TaskManager
-   cd TaskManager
-   ```
+## 🛠️ Setup Instructionss
 
 2. **Configure Database**
 
@@ -371,77 +308,9 @@ User → JavaScript → AJAX → API Endpoint → Database → JSON Response →
 - User authentication and authorization
 - Project management and documentation
 
-### Application Pages
-
-- Landing Page: `index.php` (Marketing/Hero page)
-- Dashboard Router: `pages/dashboard/index.php` (Role-based routing)
-- Admin View: `pages/dashboard/admin.php`
-- Manager View: `pages/dashboard/manager.php`
-- Employee View: `pages/dashboard/employee.php`
-- Reports: `pages/reports/index.php`
-- Authentication: `pages/auth/login.php`, `register.php`, `logout.php`
-
 ### Components
 
 **Layout Components**
-
-- `components/layout/header.php` - HTML head with Tailwind CDN
-- `components/layout/footer.php` - Scripts and toast container
-- `components/layout/sidebar.php` - Navigation sidebar with gradient header
-- `components/layout/navigation.php` - Top navigation bar with user menu
-
-**Dashboard Components**
-
-- `components/dashboard/stat-card.php` - Statistics cards with gradients
-- `components/dashboard/user-nav.php` - User dropdown with account switching
-
-**Task Components**
-
-- `components/tasks/tasks-table.php` - Task table with filtering
-- `components/tasks/create-task-dialog.php` - Modal for creating tasks
-- `components/tasks/task-filters.php` - Filter controls
-
-**Report Components**
-
-- `components/reports/task-summary-chart.php` - Chart.js visualization
-
-**UI Components**
-
-- `components/ui/alert.php` - Alert messages
-- `components/ui/badge.php` - Status/priority badges
-- `components/ui/button.php` - Reusable button component
-- `components/ui/card.php` - Card container
-- `components/ui/dialog.php` - Modal dialog
-- `components/ui/table.php` - Table component
-- `components/ui/toast.php` - Toast notification
-
-### API Endpoints
-
-**Authentication**
-
-- `POST /api/auth/login.php` - User login
-- `POST /api/auth/register.php` - User registration
-- `POST /api/auth/logout.php` - User logout
-- `GET /api/auth/check.php` - Session validation
-- `POST /api/auth/switch-user.php` - Switch between accounts (demo)
-
-**Tasks**
-
-- `GET /api/tasks/list.php` - Get all tasks
-- `GET /api/tasks/get.php?id={id}` - Get single task
-- `POST /api/tasks/create.php` - Create new task
-- `PUT /api/tasks/update.php` - Update task
-- `DELETE /api/tasks/delete.php?id={id}` - Delete task
-
-**Reports**
-
-- `GET /api/reports/stats.php` - Get statistics
-- `POST /api/reports/generate.php` - Generate report
-
-**Projects**
-
-- `GET /api/projects/list.php` - Get all projects
-- `POST /api/projects/create.php` - Create new project
 
 ### Backend Logic
 
@@ -527,7 +396,6 @@ User → JavaScript → AJAX → API Endpoint → Database → JSON Response →
 - [ ] Registration page with password strength checker
 - [ ] Password reset functionality
 - [ ] Email verification
-- [ ] Remember me functionality
 - [ ] Session timeout handling
 - [ ] Logout confirmation
 
@@ -537,7 +405,6 @@ User → JavaScript → AJAX → API Endpoint → Database → JSON Response →
 - [ ] Create/Edit/Delete users
 - [ ] Assign roles and departments
 - [ ] User profile page
-- [ ] Avatar upload
 - [ ] Change password functionality
 - [ ] Account settings
 
@@ -559,79 +426,6 @@ User → JavaScript → AJAX → API Endpoint → Database → JSON Response →
 - Task notifications system
 - PDF/Excel export functionality
 - Calendar and Kanban views
-
-## 🎯 Development Timeline
-
-### Week 1-2: Foundation ✅
-
-Project structure, landing page, layouts, authentication structure, design system
-
-### Week 3-4: Core Features ✅
-
-Dashboard views, task tables, reports, UI components, sample data
-
-### Week 5-6: Backend Integration 🔄
-
-Database schema, API endpoints, authentication, CRUD operations
-
-### Week 7-8: Advanced Features 📅
-
-Task creation, user management, file uploads, notifications
-
-### Week 9-10: Testing & Polish 📅
-
-Unit testing, bug fixes, performance optimization, security audit
-
-### Week 11-12: Documentation & Deployment 📅
-
-User documentation, deployment guide, training materials, final presentation
-
-## 📈 Success Metrics
-
-**Technical**
-
-- Page load < 2s, Query time < 100ms, Zero SQL injection, 100% mobile responsive
-
-**User Impact**
-
-- 80% reduction in task assignment time
-- 100% digital records (eliminate paper)
-- Real-time task visibility
-- 90% reduction in lost records
-- Automated report generation
-
-**Business Value**
-
-- Improved task completion rate
-- Better accountability and transparency
-- Enhanced communication
-- Reduced administrative overhead
-
-## 🎯 Manual vs Automated System
-
-| Aspect          | Manual              | Automated           |
-| --------------- | ------------------- | ------------------- |
-| Task Assignment | Paper/verbal        | Web interface       |
-| Records         | Physical files      | MySQL database      |
-| Progress        | No visibility       | Live dashboard      |
-| Reports         | Manual (hours/days) | Automated (seconds) |
-| Search          | Manual filing       | Instant search      |
-| Access          | Physical presence   | Remote browser      |
-| Security        | Can be lost         | Encrypted database  |
-
-## 🤝 Contributing
-
-This academic project welcomes contributions:
-
-- Database integration with PDO queries
-- RESTful API development
-- UI/UX enhancements
-- Testing and bug fixes
-- Documentation improvements
-
-**Guidelines**: Follow existing code structure, procedural PHP (no OOP), test thoroughly, update documentation
-
----
 
 ## � Project Information
 
