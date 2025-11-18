@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-// Check if user is already logged in
-$isLoggedIn = true;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +35,7 @@ $isLoggedIn = true;
                 </div> -->
 
                 <div class="flex items-center space-x-4">
-                    <?php if ($isLoggedIn): ?>
+                    <?php if ($isLoggedIn ?? ''): ?>
                         <a href="/TaskManager/pages/dashboard/index.php" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 transition">Dashboard</a>
                         <a href="/TaskManager/api/auth/logout.php" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Logout</a>
                     <?php else: ?>
@@ -104,7 +102,7 @@ $isLoggedIn = true;
                 </div>
                 <div class="hidden md:block">
                     <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-2xl">
-                        <img src="/TaskManager/public/assets/images/dashboard-preview.png" alt="Dashboard Preview" class="rounded-lg" onerror="this.style.display='none'">
+                        <img src="/TaskManager/public/images/dashboard-preview.png" alt="Dashboard Preview" class="rounded-lg" onerror="this.style.display='none'">
                         <div class="space-y-4 mt-6">
                             <div class="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                                 <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">

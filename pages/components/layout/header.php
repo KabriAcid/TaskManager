@@ -12,7 +12,7 @@
     <link rel="icon" href="/public/favicon.png" />
     
     <!-- Tailwind CSS CDN -->
-    <link rel="stylesheet" href="../assets/css/output.css" />
+    <link rel="stylesheet" href="../../public/css/output.css" />
 </head>
 
 <body class="antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">

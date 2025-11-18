@@ -21,13 +21,6 @@ include __DIR__ . '/../components/layout/header.php';
                 </svg>
                 <span class="ml-2 text-3xl font-bold text-foreground">TaskManager</span>
             </a>
-            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Create an account</h1>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                Already have an account?
-                <a href="<?php echo APP_URL; ?>/pages/auth/login.php" class="font-medium text-primary hover:underline">
-                    Sign in
-                </a>
-            </p>
         </div>
         <form id="register-form" class="mt-8 space-y-6">
             <div id="error-message" class="hidden p-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
@@ -48,14 +41,21 @@ include __DIR__ . '/../components/layout/header.php';
             </div>
 
             <div>
-                <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                         <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                         </svg>
                     </span>
-                    Sign up
+                    Register
                 </button>
+            </div>
+            <div class="text-sm">
+                <p class="text-center">Already have an account?
+                    <a href="login.php" class="font-medium text-indigo-600 hover:underline">
+                        Login
+                    </a>
+                </p>
             </div>
         </form>
     </div>
