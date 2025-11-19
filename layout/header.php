@@ -13,6 +13,15 @@
     
     <!-- Tailwind CSS CDN -->
     <link rel="stylesheet" href="../../public/css/output.css" />
+
+    <!-- Lucide icons init -->
+     <script>
+        const startLucideIcons = () => {
+            window.lucide.createIcons();
+        }
+
+        document.addEventListener('DOMContentLoaded', startLucideIcons);
+     </script>
 </head>
 
 <body class="antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">

@@ -6,10 +6,6 @@
     <script src="<?php echo APP_URL; ?>/public/js/app.js"></script>
     <?php if (isset($additionalScripts)) echo $additionalScripts; ?>
 
-    <!-- Lucide Icons -->
-    <script>
-        lucide.createIcons();
-    </script>
     </body>
 
     </html>

@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+// Allow all domains to avoid CORS
+header('Access-Control-Allow-Origin: *');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +10,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow - Employee Task Scheduling & Reporting System</title>
-    <link href="/TaskManager/public/css/output.css" rel="stylesheet">
-    <script defer src="/TaskManager/public/js/app.js"></script>
+    <link href="public/css/output.css" rel="stylesheet">
+    <script defer src="public/js/app.js"></script>
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900">
@@ -29,11 +30,11 @@ session_start();
 
                 <div class="flex items-center space-x-4">
                     <?php if ($isLoggedIn ?? ''): ?>
-                        <a href="/TaskManager/pages/dashboard/index.php" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 transition">Dashboard</a>
-                        <a href="/TaskManager/api/auth/logout.php" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Logout</a>
+                        <a href="pages/dashboard/index.php" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 transition">Dashboard</a>
+                        <a href="api/auth/logout.php" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Logout</a>
                     <?php else: ?>
-                        <a href="/TaskManager/pages/auth/login.php" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 transition">Login</a>
-                        <a href="/TaskManager/pages/auth/register.php" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Sign Up</a>
+                        <a href="pages/auth/login.php" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 transition">Login</a>
+                        <a href="pages/auth/register.php" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Sign Up</a>
                     <?php endif; ?>
                 </div>
 
@@ -73,7 +74,7 @@ session_start();
                         NEU/22/23/CSC/00086 | Final Year Academic Project
                     </p>
                     <div class="flex space-x-4">
-                        <a href="/TaskManager/pages/auth/register.php" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg">
+                        <a href="pages/auth/register.php" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg">
                             Sign Up Now
                         </a>
                         <a href="#how-it-works" class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:border-indigo-600 transition">
@@ -400,15 +401,15 @@ session_start();
                 <div>
                     <h4 class="text-white font-semibold mb-4">System</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="/TaskManager/pages/auth/login.php" class="hover:text-white transition">Login</a></li>
-                        <li><a href="/TaskManager/pages/auth/register.php" class="hover:text-white transition">Register</a></li>
-                        <li><a href="/TaskManager/pages/dashboard/index.php" class="hover:text-white transition">Dashboard</a></li>
+                        <li><a href="pages/auth/login.php" class="hover:text-white transition">Login</a></li>
+                        <li><a href="pages/auth/register.php" class="hover:text-white transition">Register</a></li>
+                        <li><a href="pages/dashboard/index.php" class="hover:text-white transition">Dashboard</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold mb-4">Documentation</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="/TaskManager/docs/blueprint.md" class="hover:text-white transition">Project Blueprint</a></li>
+                        <li><a href="docs/blueprint.md" class="hover:text-white transition">Project Blueprint</a></li>
                         <li><a href="https://github.com/KabriAcid/TaskManager" class="hover:text-white transition">GitHub Repository</a></li>
                         <li><a href="#" class="hover:text-white transition">Technical Specs</a></li>
                     </ul>

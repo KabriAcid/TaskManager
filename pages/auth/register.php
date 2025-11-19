@@ -115,4 +115,8 @@ include __DIR__ . '/../../layout/header.php';
             });
     });
 </script>
+<<<<<<< HEAD
 <?php include __DIR__ . '/../../layout/footer.php'; ?>
+=======
+<?php include __DIR__ . '/../../layout/footer.php'; ?>
+>>>>>>> 16c3917f43dc9a13fdec10df4fe9d4cac69214b6
