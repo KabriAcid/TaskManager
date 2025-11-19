@@ -111,4 +111,4 @@ include __DIR__ . '/../../layout/header.php';
             });
     });
 </script>
-<?php include __DIR__ . '/../components/layout/footer.php'; ?>
+<?php include __DIR__ . '/../../layout/footer.php'; ?>

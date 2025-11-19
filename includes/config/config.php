@@ -5,6 +5,8 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
 $dotenv->safeLoad();
 
+header('Access-Control-Allow-Origin: *');
+
 // Application Configuration
 define('APP_NAME', $_ENV['APP_NAME'] ?? 'TaskManager');
 define('APP_URL', $_ENV['APP_URL'] ?? 'http://localhost/TaskManager');
