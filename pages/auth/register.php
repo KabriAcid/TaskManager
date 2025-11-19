@@ -9,7 +9,7 @@ if (isLoggedIn()) {
 }
 
 $pageTitle = 'Register';
-include __DIR__ . '/../components/layout/header.php';
+include __DIR__ . '/../../layout/header.php';
 ?>
 
 <div class="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">

@@ -1,12 +1,11 @@
 <?php
-if (!isset($currentUser)) {
-    require_once __DIR__ . '/../../includes/config/config.php';
-    require_once __DIR__ . '/../../includes/helpers/session.php';
-    require_once __DIR__ . '/../../includes/database/db.php';
-    requireAuth();
-    $currentUser = getCurrentUser();
-    $pageTitle = 'Employee Dashboard';
-}
+require_once __DIR__ . '/../../includes/config/config.php';
+require_once __DIR__ . '/../../includes/helpers/session.php';
+require_once __DIR__ . '/../../includes/database/db.php';
+
+requireAuth();
+$currentUser = getCurrentUser();
+$pageTitle = 'Employee Dashboard';
 
 // Get all tasks with user details
 $allTasks = getTasksWithUsers();
@@ -23,14 +22,14 @@ $overdueTasks = count(array_filter($assignedTasks, fn($t) => strtotime($t['deadl
 $inProgressTasks = count(array_filter($assignedTasks, fn($t) => $t['status'] === 'In Progress'));
 
 // Include header and layout
-include __DIR__ . '/../../components/layout/header.php';
+include __DIR__ . '/../../layout/header.php';
 ?>
 
 <div class="flex min-h-screen">
-    <?php include __DIR__ . '/../../components/layout/sidebar.php'; ?>
+    <?php include __DIR__ . '/../../layout/sidebar.php'; ?>
 
     <div class="flex-1 md:ml-64">
-        <?php include __DIR__ . '/../../components/layout/navigation.php'; ?>
+        <?php include __DIR__ . '/../../layout/navigation.php'; ?>
 
         <main class="p-4 lg:p-6">
             <div class="space-y-6">
@@ -44,7 +43,7 @@ include __DIR__ . '/../../components/layout/header.php';
                 <!-- Stats Grid -->
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                     <?php
-                    require_once __DIR__ . '/../../components/dashboard/stat-card.php';
+                    require_once 'stat-card.php';
                     renderStatCard('My Total Tasks', $totalTasks, 'list-checks', 'All tasks assigned to you', 'blue');
                     renderStatCard('Completed', $completedTasks, 'check-circle', "Tasks you've finished", 'purple');
                     renderStatCard('Overdue', $overdueTasks, 'alert-circle', 'Require your urgent attention', 'pink');
@@ -55,7 +54,7 @@ include __DIR__ . '/../../components/layout/header.php';
                 <!-- Tasks Table -->
                 <div>
                     <?php
-                    require_once __DIR__ . '/../../components/tasks/tasks-table.php';
+                    require_once '../tasks/tasks-table.php';
                     renderTasksTable(array_values($assignedTasks), 'My Tasks');
                     ?>
                 </div>
@@ -66,5 +65,5 @@ include __DIR__ . '/../../components/layout/header.php';
 
 <?php
 $additionalScripts = '<script src="' . APP_URL . '/public/js/dashboard.js"></script>';
-include __DIR__ . '/../../components/layout/footer.php';
+include __DIR__ . '/../../layout/footer.php';
 ?>

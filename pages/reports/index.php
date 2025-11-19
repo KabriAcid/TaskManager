@@ -15,14 +15,14 @@ $dailyTasks = array_filter($tasks, fn($t) => strtotime($t['created_at']) > strto
 $weeklyTasks = array_filter($tasks, fn($t) => strtotime($t['created_at']) > strtotime('-7 days'));
 $monthlyTasks = array_filter($tasks, fn($t) => strtotime($t['created_at']) > strtotime('-30 days'));
 
-include __DIR__ . '/../../components/layout/header.php';
+include __DIR__ . '/../../layout/header.php';
 ?>
 
 <div class="flex min-h-screen">
-    <?php include __DIR__ . '/../../components/layout/sidebar.php'; ?>
+    <?php include __DIR__ . '/../../layout/sidebar.php'; ?>
 
     <div class="flex-1 md:ml-64">
-        <?php include __DIR__ . '/../../components/layout/navigation.php'; ?>
+        <?php include __DIR__ . '/../../layout/navigation.php'; ?>
 
         <main class="p-4 lg:p-6">
             <div class="flex-1 space-y-4">
@@ -59,7 +59,7 @@ include __DIR__ . '/../../components/layout/header.php';
                                 <p class="text-sm text-gray-600 dark:text-gray-400">Task summary for the last 24 hours.</p>
                             </div>
                             <div class="p-6 pt-0">
-                                <?php include __DIR__ . '/../../components/reports/task-summary-chart.php';
+                                <?php include 'task-summary-chart.php';
                                 renderTaskSummaryChart($dailyTasks, 'daily'); ?>
                             </div>
                         </div>
@@ -121,5 +121,5 @@ include __DIR__ . '/../../components/layout/header.php';
 
 <?php
 $additionalScripts = '<script src="' . APP_URL . '/public/js/reports.js"></script>';
-include __DIR__ . '/../../components/layout/footer.php';
+include __DIR__ . '/../../layout/footer.php';
 ?>

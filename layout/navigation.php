@@ -1,8 +1,3 @@
-<?php
-require_once __DIR__ . '/../../includes/helpers/session.php';
-$currentUser = getCurrentUser();
-?>
-
 <!-- Top Navigation Bar -->
 <header class="sticky top-0 z-10 flex h-16 items-center gap-4 border-b border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 px-4 backdrop-blur-sm md:px-6 ml-0 md:ml-64">
     <!-- Mobile Menu Trigger -->
@@ -19,5 +14,5 @@ $currentUser = getCurrentUser();
     </div>
 
     <!-- User Navigation -->
-    <?php include __DIR__ . '/../dashboard/user-nav.php'; ?>
+    <?php #include __DIR__ . '/../components/dashboard/user-nav.php'; ?>
 </header>

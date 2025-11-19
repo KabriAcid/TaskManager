@@ -10,7 +10,7 @@ if (isLoggedIn()) {
 }
 
 $pageTitle = 'Login';
-include __DIR__ . '/../components/layout/header.php';
+include __DIR__ . '/../../layout/header.php';
 ?>
 
 <div class="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -38,7 +38,7 @@ include __DIR__ . '/../components/layout/header.php';
                     <label for="password" class="sr-only">Password</label>
                     <input id="password" name="password" type="password" autocomplete="current-password" required
                         class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 placeholder-gray-500 text-gray-900 dark:text-white rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        placeholder="Password" value="password">
+                        placeholder="Password" value="Pa$$w0rd!">
                 </div>
             </div>
 
@@ -82,7 +82,7 @@ include __DIR__ . '/../components/layout/header.php';
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const errorMessage = document.getElementById('earror-message');
+        const errorMessage = document.getElementById('error-message');
 
         fetch(form.action, {
                 method: 'POST',

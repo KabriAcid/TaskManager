@@ -1,5 +1,3 @@
-// Main application JavaScript
-
 // Sidebar toggle for mobile
 document.addEventListener("DOMContentLoaded", function () {
   const sidebarTrigger = document.getElementById("sidebar-trigger");
