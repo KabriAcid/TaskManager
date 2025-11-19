@@ -13,7 +13,8 @@ function getTasksWithUsers()
         SELECT 
             t.*, 
             assignee.name as assignee_name, assignee.avatar as assignee_avatar,
-            assigner.name as assigner_name
+            assigner.name as assigner_name,
+            assigner.id as assigner_id
         FROM tasks t
         JOIN users assignee ON t.assignee_id = assignee.id
         JOIN users assigner ON t.assigner_id = assigner.id
@@ -32,6 +33,7 @@ function getTasksWithUsers()
             'deadline' => $row['deadline'],
             'created_at' => $row['created_at'],
             'assigner' => [
+                'id' => $row['assigner_id'],
                 'name' => $row['assigner_name']
             ],
             'assignee' => [

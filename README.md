@@ -1,175 +1,439 @@
-# PHP Task Manager
+# Design and Implementation of Employee Task Scheduling and Reporting Information System
 
-A professional task management application built with PHP (PDO), MySQL, Tailwind CSS, and Vanilla JavaScript (AJAX). This is a conversion of the Next.js TaskManager application to vanilla PHP while maintaining the exact markup and functionality.
+**Academic Project** | Computer Science Department | NEU/22/23/CSC/00086
 
-## 🚀 Features
+A professional employee task scheduling and reporting system application built with PHP (PDO), MySQL, Tailwind CSS, and Vanilla JavaScript (AJAX). This system automates the process of assigning, tracking, and reporting employee tasks within an organization, improving efficiency, accountability, and communication between supervisors and staff.
 
-- **Role-Based Dashboards**: Separate views for Admin, Manager, and Employee roles
-- **Task Management**: Create, view, filter, and search tasks
-- **Reports**: Daily, weekly, and monthly task summaries with charts
-- **Responsive Design**: Mobile-friendly interface with Tailwind CSS
-- **Real-time Filtering**: Client-side task filtering and search
-- **User Switching**: Demo feature to switch between user roles
+## 📋 Project Overview
 
-## 📁 Project Structure
+### Primary Goal
 
-```
-TaskManager/
-├── public/              # Public-facing files
-│   ├── index.php       # Main entry point
-│   ├── css/            # Tailwind CSS files
-│   ├── js/             # JavaScript files
-│   └── assets/         # Images and static files
-├── pages/              # Main application pages
-│   ├── auth/           # Login, register, logout
-│   ├── dashboard/      # Dashboard pages
-│   ├── tasks/          # Task management
-│   └── reports/        # Reports
-├── components/         # Reusable PHP components
-│   ├── layout/         # Header, footer, sidebar, navigation
-│   ├── dashboard/      # Dashboard components
-│   ├── tasks/          # Task components
-│   ├── reports/        # Report components
-│   └── ui/             # UI components
-├── api/                # AJAX API endpoints
-│   ├── auth/           # Authentication
-│   ├── tasks/          # Task CRUD
-│   ├── projects/       # Projects
-│   └── reports/        # Reports
-├── includes/           # Backend logic
-│   ├── config/         # Configuration
-│   ├── auth/           # Session management
-│   └── database/       # Database connection
-├── database/           # SQL files
-└── storage/            # Logs and uploads
-```
+To automate the process of assigning, tracking, and reporting employee tasks within an organization, improving efficiency, accountability, and communication between supervisors and staff.
 
-## 🛠️ Setup Instructions
+### Problem Statement
 
-### Prerequisites
+The manual task assignment and reporting process involves:
 
-- XAMPP (or any PHP 7.4+ environment)
-- Node.js and npm (for Tailwind CSS compilation)
-- MySQL database
+- Supervisors assigning tasks through verbal instructions or paper-based records
+- Employees recording tasks in personal notebooks
+- Manual submission of completion reports on paper
+- Supervisors updating log books manually
 
-### Pages
+### Pain Points Addressed
 
-- `src/app/page.tsx` → `pages/dashboard/index.php`
-- `src/app/layout.tsx` → `components/layout/header.php` + `footer.php`
-- `src/app/dashboard/reports/page.tsx` → `pages/reports/index.php`
+- ❌ Manual assignment and tracking lead to delays and confusion
+- ❌ Paper records can be misplaced or damaged
+- ❌ Lack of transparency - supervisors cannot monitor progress in real-time
+- ❌ Error-prone data entry and reporting reduce accuracy
+- ❌ Difficult to generate summaries or performance statistics manually
+- ❌ No automatic notifications or reminders for pending tasks
+
+### Solution Features
+
+- ✅ **Role-Based Dashboards**: Separate views for Admin, Manager, and Employee roles
+- ✅ **Task Management**: Create, view, filter, and search tasks
+- ✅ **Reports**: Daily, weekly, and monthly task summaries with charts
+- ✅ **Real-time Tracking**: Live task status updates and progress monitoring
+- ✅ **Responsive Design**: Mobile-friendly interface with Tailwind CSS
+- ✅ **Digital Records**: Secure database storage replacing paper-based systems
+
+## � Key Stakeholders
+
+| Actor                          | Role                         | Responsibilities                                                                |
+| ------------------------------ | ---------------------------- | ------------------------------------------------------------------------------- |
+| **Supervisor / Manager**       | Task Assignment & Monitoring | Assigns tasks to employees, monitors progress, and collects reports             |
+| **Employee / Staff Member**    | Task Execution               | Receives tasks, performs them, and submits completion reports                   |
+| **Human Resources Department** | Compliance & Oversight       | Ensures compliance with organizational policies and tracks overall productivity |
+| **Administrator / IT Officer** | System Management            | Maintains the system and manages user accounts and data integrity               |
+
+## 📊 Data Entities
+
+### Employee
+
+**Attributes:**
+
+- Employee ID
+- Full Name
+- Department
+- Designation
+- Contact Information
+- Email Address
+- Role (Admin/Manager/Employee)
+
+**Current Storage:** Physical employee files or Excel spreadsheets  
+**Proposed Storage:** MySQL database with secure authentication
+
+### Task
+
+**Attributes:**
+
+- Task ID
+- Title
+- Description
+- Assigned Employee (Foreign Key)
+- Assigner/Supervisor (Foreign Key)
+- Start Date
+- Due Date
+- Status (To Do, In Progress, Done, Cancelled)
+- Priority (Low, Medium, High, Urgent)
+- Completion Report
+- Created At
+- Updated At
+
+**Current Storage:** Paper task register or manual assignment forms  
+**Proposed Storage:** MySQL database with relational integrity
+
+## 🔄 Process Flow
+
+### Manual Process (Before Automation)
+
+1. **Supervisor** writes task details on paper or gives verbal instructions
+2. **Employee** records task in personal notebook
+3. **Employee** performs the task
+4. **Employee** submits completion report on paper
+5. **Supervisor** updates log book manually and prepares summary
+
+### Automated Process (After Implementation)
+
+1. **Supervisor** creates task through web interface with all details
+2. **System** automatically notifies employee via dashboard
+3. **Employee** views task details, updates status in real-time
+4. **Employee** submits digital completion report
+5. **System** automatically updates records and generates reports
+
+## 🎯 Project Scope
+
+### In Scope
+
+- Web-based task assignment interface
+- Role-based access control (Admin, Manager, Employee)
+- Real-time task tracking and status updates
+- Digital task completion reporting
+- Automated report generation (daily, weekly, monthly)
+- Dashboard with statistics and visualizations
+- Search and filter functionality
+- User account management
+- Task history and audit trail
+
+### Out of Scope
+
+- Employee recruitment processes
+- Payroll management
+- Annual performance appraisal systems
+- Leave management
+- Attendance tracking
+- Asset management
+
+## 🛠️ Technology Stack
+
+### Development Environment
+
+- **XAMPP**: Local development server (Apache + MySQL + PHP)
+- **Git**: Version control
+- **VS Code**: Code editor
+
+### Design System
+
+- **Color Palette**: Indigo-600 primary, Purple-600 secondary
+- **Components**: Custom PHP components with gradient designs
+- **Icons**: Inline SVG icons for better performance
+- **Responsive**: Mobile-first approach with breakpoints
+
+## 🛠️ Setup Instructionss
+
+2. **Configure Database**
+
+   - Start XAMPP (Apache and MySQL)
+   - Open phpMyAdmin (http://localhost/phpmyadmin)
+   - Create a new database named `task_manager`
+   - Import `database/schema.sql` to create tables
+   - Import `database/seed.sql` for sample data
+
+3. **Configure Environment**
+
+   - Copy `.env.example` to `.env`
+   - Update database credentials:
+     ```
+     DB_HOST=localhost
+     DB_NAME=task_manager
+     DB_USER=root
+     DB_PASS=
+     APP_URL=http://localhost/TaskManager
+     APP_ENV=development
+     ```
+
+4. **Access Application**
+   - Navigate to: `http://localhost/TaskManager`
+   - Default login credentials:
+     - Admin: admin@taskflow.com / password
+     - Manager: manager@taskflow.com / password
+     - Employee: employee@taskflow.com / password
+
+## 🗄️ Database Schema
+
+### Tables
+
+**users**
+
+- id (PRIMARY KEY)
+- name
+- email (UNIQUE)
+- password_hash
+- role (ENUM: 'Admin', 'Manager', 'Employee')
+- department
+- designation
+- avatar
+- created_at
+- updated_at
+
+**tasks**
+
+- id (PRIMARY KEY)
+- title
+- description
+- assignee_id (FOREIGN KEY → users.id)
+- assigner_id (FOREIGN KEY → users.id)
+- project_id (FOREIGN KEY → projects.id, nullable)
+- status (ENUM: 'To Do', 'In Progress', 'Done', 'Cancelled')
+- priority (ENUM: 'Low', 'Medium', 'High', 'Urgent')
+- start_date
+- deadline
+- completed_at (nullable)
+- created_at
+- updated_at
+
+**projects** (Optional)
+
+- id (PRIMARY KEY)
+- name
+- description
+- created_by (FOREIGN KEY → users.id)
+- created_at
+- updated_at
+
+**task_reports**
+
+- id (PRIMARY KEY)
+- task_id (FOREIGN KEY → tasks.id)
+- employee_id (FOREIGN KEY → users.id)
+- report_text
+- submitted_at
+- created_at
+
+## 🎨 Design System
+
+### Color Palette
+
+- **Primary**: Indigo-600 (#4f46e5)
+- **Secondary**: Purple-600 (#9333ea)
+- **Success**: Green-500 (#10b981)
+- **Warning**: Yellow-500 (#f59e0b)
+- **Error**: Red-500 (#ef4444)
+- **Info**: Blue-500 (#3b82f6)
+
+### Gradients
+
+- Purple to Indigo: `from-purple-500 to-indigo-600`
+- Indigo to Purple: `from-indigo-500 to-purple-600`
+- Blue to Indigo: `from-blue-500 to-indigo-600`
+- Pink to Purple: `from-pink-500 to-purple-600`
+
+### Typography
+
+- **Headings**: Font-bold, tracking-tight
+- **Body**: Text-gray-700 dark:text-gray-300
+- **Muted**: Text-gray-600 dark:text-gray-400
 
 ### Components
 
-- `src/components/layout/app-layout.tsx` → `components/layout/sidebar.php` + `navigation.php`
-- `src/components/dashboard/admin-dashboard.tsx` → `pages/dashboard/admin.php`
-- `src/components/dashboard/manager-dashboard.tsx` → `pages/dashboard/manager.php`
-- `src/components/dashboard/employee-dashboard.tsx` → `pages/dashboard/employee.php`
-- `src/components/dashboard/stat-card.tsx` → `components/dashboard/stat-card.php`
-- `src/components/tasks/tasks-table.tsx` → `components/tasks/tasks-table.php`
-- `src/components/reports/task-summary-chart.tsx` → `components/reports/task-summary-chart.php`
+- **Cards**: Rounded-xl with shadow-lg
+- **Buttons**: Gradient backgrounds with hover effects
+- **Inputs**: Rounded-lg with indigo-500 focus ring
+- **Badges**: Rounded-full with color-coded backgrounds
 
-### Data & State
+## 📋 System Architecture
 
-- `src/lib/data.ts` → `includes/database/db.php` (sample data functions)
-- `src/contexts/auth-context.tsx` → `includes/auth/session.php` (PHP sessions)
-- `src/hooks/use-auth.ts` → `api/auth/check.php` + session management
+### Frontend Layer
 
-## 🎨 Styling
+- **Pages**: PHP files that render complete HTML pages
+- **Components**: Reusable PHP functions that generate HTML
+- **JavaScript**: AJAX calls for async operations
+- **Styles**: Tailwind CSS via CDN with custom configuration
 
-The application uses Tailwind CSS with a custom design system that matches the Next.js version:
+### Backend Layer
 
-- CSS Variables for theming (light/dark mode ready)
-- Consistent color palette
-- Responsive design with mobile-first approach
-- Custom components matching shadcn/ui
+- **API Endpoints**: RESTful endpoints for CRUD operations
+- **Session Management**: PHP sessions for authentication
+- **Database Layer**: PDO for secure database interactions
+- **Business Logic**: Procedural PHP functions
 
-## 🔐 Authentication
+### Data Flow
 
-Currently using demo authentication with auto-login. Real authentication will be implemented in API endpoints:
+```
+User → Browser → PHP Page → Session Check → Database Query → Render HTML → Browser
+User → JavaScript → AJAX → API Endpoint → Database → JSON Response → Update UI
+```
 
-- `api/auth/login.php`
-- `api/auth/register.php`
-- `api/auth/logout.php`
-- `api/auth/check.php`
+## 🔐 Security Features
 
-## 📊 Features Implemented
+- **Password Hashing**: Using `password_hash()` with bcrypt
+- **SQL Injection Prevention**: PDO prepared statements
+- **XSS Protection**: `htmlspecialchars()` on all output
+- **CSRF Protection**: Token validation for forms
+- **Session Security**: Secure session configuration
+- **Role-Based Access Control**: Middleware for authorization
 
-✅ **Core Layout**
+## 🎓 Academic Project Information
 
-- Responsive sidebar navigation
-- Header with user dropdown
-- Mobile-friendly design
+**Institution**: Computer Science Department  
+**Registration**: NEU/22/23/CSC/00086  
+**Project Type**: Final Year Project  
+**Date**: November 2025
 
-✅ **Dashboard**
+### Project Objectives
 
-- Role-based dashboards (Admin, Manager, Employee)
-- Statistics cards with icons
-- Task tables with filtering
+1. Understand the limitations of manual task management systems
+2. Design a comprehensive database schema for task management
+3. Implement a web-based solution using modern technologies
+4. Create role-based dashboards for different user types
+5. Develop reporting capabilities for performance tracking
+6. Demonstrate practical application of software engineering principles
 
-✅ **Tasks**
+### Learning Outcomes
 
-- Task list with filtering (priority, status)
+- Database design and normalization
+- PHP backend development with PDO
+- Frontend development with Tailwind CSS
+- RESTful API design and implementation
+- User authentication and authorization
+- Project management and documentation
+
+### Components
+
+**Layout Components**
+
+### Backend Logic
+
+**Configuration**
+
+- `includes/config/config.php` - Application configuration and constants
+- `includes/config/database.php` - Database connection setup
+
+**Authentication**
+
+- `includes/auth/session.php` - Session management functions
+- `includes/auth/functions.php` - Login, register, authentication helpers
+
+**Database**
+
+- `includes/database/db.php` - Database query functions and sample data
+- `includes/database/queries.php` - Prepared statement helpers
+
+## 📊 Implementation Progress
+
+### ✅ Completed Features
+
+**Core Infrastructure**
+
+- Landing page with hero, features, and testimonials
+- Responsive layout with sidebar and navigation
+- Session-based authentication system
+- Role-based access control
+- Indigo/purple design system with gradients
+
+**Dashboard Views**
+
+- Admin dashboard (all organizational tasks)
+- Manager dashboard (team-specific tasks)
+- Employee dashboard (personal tasks)
+- Statistics cards with color-coded gradients
+- Real-time filtering and search
+
+**Task Management**
+
+- Task table with priority/status filtering
 - Search functionality
-- Visual badges for priority and status
+- Color-coded badges
 - Assignee avatars
+- Deadline display
 
-✅ **Reports**
+**Reports System**
 
-- Tabbed interface (Daily, Weekly, Monthly)
-- Chart.js integration for task summaries
-- Export placeholder (to be implemented)
+- Daily, weekly, monthly summaries
+- Tabbed interface
+- Chart.js visualizations
+- Export placeholder
 
-✅ **Utilities**
+### 🚧 Pending Implementation
 
-- Toast notifications
-- API helper functions
-- Date formatting
-- Debounce utility
+- [ ] Connect to MySQL database
+- [ ] Implement PDO queries for all CRUD operations
+- [ ] Replace sample data with real database queries
+- [ ] Add database connection error handling
+- [ ] Implement transaction support for complex operations
+- [ ] Add database migration system
 
-## 🚧 To Be Implemented
+### Phase 7: Task CRUD Operations (Priority: High)
 
-The following features are planned:
+- [ ] Create Task API endpoint (`/api/tasks/create.php`)
+  - Validate input data
+  - Insert task into database
+  - Send notification to assignee
+- [ ] Update Task API endpoint (`/api/tasks/update.php`)
+  - Update task status, priority, deadline
+  - Track change history
+- [ ] Delete Task API endpoint (`/api/tasks/delete.php`)
+  - Soft delete with archived status
+- [ ] Task Detail View (`/pages/tasks/view.php`)
+  - Full task information
+  - Edit capability
+  - Comments section
+  - File attachments
 
-- [ ] Database integration (currently using sample data)
-- [ ] Real authentication system
-- [ ] Task CRUD API endpoints
-- [ ] Create task dialog/modal
-- [ ] Task detail view
-- [ ] User management
-- [ ] File uploads
-- [ ] PDF export functionality
-- [ ] Email notifications
+### Phase 8: Real Authentication (Priority: High)
 
-## 🎯 Key Differences from Next.js Version
+- [ ] Login page with form validation
+- [ ] Registration page with password strength checker
+- [ ] Password reset functionality
+- [ ] Email verification
+- [ ] Session timeout handling
+- [ ] Logout confirmation
 
-1. **No Server Components**: All rendering is done server-side with PHP
-2. **No React Hooks**: Replaced with vanilla JavaScript and PHP sessions
-3. **No TypeScript**: Using standard PHP with type hints where applicable
-4. **Chart Library**: Using Chart.js instead of Recharts
-5. **Icons**: Using Lucide CDN instead of lucide-react package
-6. **State Management**: PHP sessions instead of React Context API
+### Phase 9: User Management (Priority: Medium)
 
-## 📦 Dependencies
+- [ ] Admin user management interface
+- [ ] Create/Edit/Delete users
+- [ ] Assign roles and departments
+- [ ] User profile page
+- [ ] Change password functionality
+- [ ] Account settings
 
-- **PHP**: 7.4+
-- **Tailwind CSS**: 3.4+
-- **Chart.js**: 4.x (CDN)
-- **Lucide Icons**: Latest (CDN)
+### Phase 10: Advanced Task Features (Priority: Medium)
 
-## 🤝 Contributing
+- [ ] Create Task Dialog with rich form
+  - Title, description fields
+  - Assignee selection dropdown
+  - Priority and status selection
+  - Date pickers for start/deadline
+  - Project assignment (optional)
+- [ ] Task assignments notifications
+- [ ] Task comments/notes system
+- [ ] File attachments for tasks
+- [ ] Task history/audit trail
+- [ ] Task dependencies
+      **Advanced Features (Priority: Medium)**
+- Create task dialog with rich form
+- Task notifications system
+- PDF/Excel export functionality
+- Calendar and Kanban views
 
-This project is a conversion from Next.js to PHP. Feel free to contribute by:
+## � Project Information
 
-1. Implementing remaining API endpoints
-2. Adding database integration
-3. Improving UI components
-4. Adding new features
+**Student**: Computer Science Department  
+**Registration**: NEU/22/23/CSC/00086  
+**Project**: Final Year (2025)  
+**Status**: Active Development (Frontend 95%, Backend 30%)
 
-## 📄 License
+**Current Focus**: Database integration and API implementation
 
-ISC
-
----
-
-**Note**: This application is currently in development and uses sample data for demonstration purposes. Database integration and full API functionality are being implemented.
->>>>>>> dbba6f82560ac1052caf44a25e1a8fdf544932e4
+**Last Updated**: November 5, 2025 | **Version**: 1.0.0-beta
