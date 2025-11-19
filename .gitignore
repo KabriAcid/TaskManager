@@ -90,3 +90,6 @@ yarn.lock
 dist/
 tmp/
 temp/
+
+.exe
+ngrok.exe

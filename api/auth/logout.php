@@ -8,3 +8,5 @@ destroySession();
 // Send success response
 header('Content-Type: application/json');
 echo json_encode(['success' => true]);
+
+header('Location: ' . APP_URL . '/pages/auth/login.php');

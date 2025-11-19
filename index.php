@@ -8,8 +8,8 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlow - Modern Task Management System</title>
-    <link href="/TaskManager/public/css/output.css" rel="stylesheet">
+    <title>TaskFlow - Employee Task Scheduling & Reporting System</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
     <script defer src="/TaskManager/public/js/app.js"></script>
 </head>
 

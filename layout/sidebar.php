@@ -48,6 +48,17 @@ $isActive = function ($path) use ($currentPath) {
             </a>
         </nav>
     </div>
+    <div class="fixed bottom-0 left-0 w-64 pb-4 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <a href="<?php echo APP_URL; ?>/api/auth/logout.php"
+            class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-700 dark:text-gray-300 transition-all hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Logout</span>
+        </a>
+    </div>
 </aside>
 
 <!-- Sidebar Overlay (Mobile) -->

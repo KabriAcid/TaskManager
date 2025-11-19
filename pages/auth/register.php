@@ -28,15 +28,15 @@ include __DIR__ . '/../../layout/header.php';
             <div class="rounded-md shadow-sm -space-y-x">
                 <div class="mb-3">
                     <label for="name" class="sr-only">Name</label>
-                    <input id="name" name="name" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm" placeholder="Full Name">
+                    <input id="name" name="name" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 placeholder-gray-500 text-gray-900 dark:text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Full Name">
                 </div>
                 <div class="mb-3">
                     <label for="email-address" class="sr-only">Email address</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm" placeholder="Email address">
+                    <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 placeholder-gray-500 text-gray-900 dark:text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="sr-only">Password</label>
-                    <input id="password" name="password" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm" placeholder="Password">
+                    <input id="password" name="password" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 placeholder-gray-500 text-gray-900 dark:text-white rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password (min 6 characters)">
                 </div>
             </div>
 
@@ -60,5 +60,38 @@ include __DIR__ . '/../../layout/header.php';
         </form>
     </div>
 </div>
+<script>
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const errorMessage = document.getElementById('error-message');
 
-<?php include __DIR__ . '/../components/layout/footer.php'; ?>
+        fetch('<?php echo APP_URL; ?>/api/auth/register.php', {
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData)),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json().then(data => ({
+                status: response.status,
+                body: data
+            })))
+            .then(({
+                status,
+                body
+            }) => {
+                if (status === 200 && body.success) {
+                    window.location.href = '<?php echo APP_URL; ?>/pages/dashboard/index.php';
+                } else {
+                    errorMessage.textContent = body.message || 'An unknown error occurred.';
+                    errorMessage.classList.remove('hidden');
+                }
+            }).catch(error => {
+                errorMessage.textContent = 'A network error occurred. Please try again.';
+                errorMessage.classList.remove('hidden');
+            });
+    });
+</script>
+<?php include __DIR__ . '/../../components/layout/footer.php'; ?>
